@@ -23,7 +23,7 @@ const sess = {
 }
 
 const app = express()
-const PORT = process.env.PORT || 3001
+app.set( 'port', ( process.env.PORT || 3001 ))
 
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
@@ -38,6 +38,6 @@ app.use(routes)
 
 sequelize.sync()
 
-app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}!`)
-})
+app.listen( app.get( 'port' ), function() {
+    console.log( 'Node server is running on port ' + app.get( 'port' ))
+    })
