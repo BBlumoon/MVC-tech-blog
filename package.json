@@ -11,7 +11,7 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.33.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -22,6 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/BBlumoon/MVC-tech-blog.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
