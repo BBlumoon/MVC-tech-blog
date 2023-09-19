@@ -83,27 +83,24 @@ router.post('/login', (req, res) => {
         .then(dbUserData => {
             if (!dbUserData) {
                 res.status(400).json({
-                    message: 'No user with that username!'
+                    message: 'Username does not exist'
                 })
                 return
             }
-
             req.session.save(() => {
                 req.session.user_id = dbUserData.id
                 req.session.username = dbUserData.username
                 req.session.loggedIn = true
-
                 res.json({
                     user: dbUserData,
-                    message: 'You are now logged in!'
+                    message: 'You are now logged in'
                 })
             })
 
             const validPassword = dbUserData.checkPassword(req.body.password)
-
             if (!validPassword) {
                 res.status(400).json({
-                    message: 'Incorrect password!'
+                    message: 'Incorrect password'
                 })
                 return
             }
@@ -112,10 +109,9 @@ router.post('/login', (req, res) => {
                 req.session.user_id = dbUserData.id
                 req.session.username = dbUserData.username
                 req.session.loggedIn = true
-
                 res.json({
                     user: dbUserData,
-                    message: 'You are now logged in!'
+                    message: 'You are now logged in'
                 })
             })
         })
